@@ -1,39 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap');
-
 :root {
   --cor0: #ebeeff;
   --cor1: #C4CBF3;
-  --cor2: #394274;
-  --cor3: #2441E2;
-  --cor4: #0026ff;
-  --cor5: #192D9E;
-  --cor6: #05091F;
-  --cor7: #000000;
-  --cor8: #ffffff;
+  --cor2: #0026ff;
+  --cor3: #05091F;
 }
-
-
 * {
   font-family: "Montserrat", serif;
   -webkit-tap-highlight-color: transparent;
   tap-highlight-color: transparent;
 }
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+/* NavBar */
 .navbar {
     padding: 0;
 }
-
 .navbar .container-fluid {
     height: 100px;
-    background-color: var(--cor6);
+    background-color: var(--cor3);
     padding: 0 30px;
 }
-
 .navbar a {
     font-family: "Barlow", serif;
     font-size: 20px;
@@ -41,18 +31,54 @@ input::-webkit-inner-spin-button {
     text-decoration: none;
     color: #ffa41b;
 }
-
 img.navbar-brand {
     margin-right: 8px;
 }
-
 img.logo-ifood {
-    width: 100px;
+    width: 80px;
 }
 
+/*Filtros */
+.left-filter, .center-filter, .right-filter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+.input-group-text {
+    font-size: 10px;
+    cursor: pointer;
+}
+h5.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+select.form-select, .dropdown button, .left-filter input {
+    width: 160px;
+    height: 30px;
+    font-size: 0.8rem;
+    margin: 0 0 0 15px;
+}
+.dropdown-menu {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.dropdown-item {
+    padding: 0.5rem 2rem;
+}
+.right-filter {
+    padding-right: 20px;
+}
+.form-check-input {
+    margin-right: 0.5rem;
+}
+.form-check-label {
+    font-size: 0.8rem;
+}
 .btn-toggle {
     background-color: var(--cor1);
-    color: var(--cor6);
+    color: var(--cor3);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -61,7 +87,6 @@ img.logo-ifood {
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
-
 .btn-toggle.on {
     background-color: green;
     color: white;
@@ -71,64 +96,17 @@ img.logo-ifood {
     color: white;
 }
 
-.left-filter, .center-filter, .right-filter {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10px;
-}
-
-
-.input-group-text {
-    font-size: 10px;
-    cursor: pointer;
-}
-
-h5.card-title {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-select.form-select, .dropdown button, .left-filter input {
-    width: 160px;
-    height: 30px;
-    font-size: 0.8rem;
-    margin: 0 0 0 15px;
-}
-
-.dropdown-menu {
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.dropdown-item {
-    padding: 0.5rem 2rem;
-}
-
-.right-filter {
-    padding-right: 20px;
-}
-
-.form-check-input {
-    margin-right: 0.5rem;
-}
-.form-check-label {
-    font-size: 0.8rem;
-}
+/* Pedidos */
 .card {
     border: 1px solid var(--cor1);
     margin-bottom: 1rem;
 }
-
 .btn {
     margin-right: 0.5rem;
 }
-
 .orders-posts {
     height: 65vh;
 }
-
 .orders-content {
     display: flex;
     flex-wrap: wrap;
@@ -136,57 +114,46 @@ select.form-select, .dropdown button, .left-filter input {
     overflow-y: auto; 
     padding: 10px;
 }
-
 .order {
     box-sizing: border-box;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .order:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px var(--cor1);
 }
-
 .order.active {
-    border: 2px solid var(--cor4);
+    border: 2px solid var(--cor2);
     background-color: var(--cor0);
 }
-
 .order-status.confirmado {
     color: blue;
 }
-
 .order-status.pendente {
     color: orange;
 }
-
 .order-status.cancelado {
     color: red;
 }
-
 .orders-data {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 p.card-text, ul.card-text, p.card-data {
     font-size: 0.6rem;
     margin-bottom: 5px;
 }
-
 .card-info {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 span.order-price {
     font-size: 1.2rem;
     font-weight: bold;
 }
-
 .users-info {
     width: 70%;
     display: flex;
@@ -194,22 +161,20 @@ span.order-price {
     justify-content: space-evenly;
 }
 
+/* Detalhe dos pedidos */
 .details-container {
     height: 65vh;
     overflow-y: hidden;
 }
-
 .details-order {
     width: 100%;
     max-height: 230px;
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 .details-buttons button {
     font-size: 0.7rem;
 }
-
 hr.details-line {
     width: 100%;
 }
@@ -249,10 +214,12 @@ li.card-text span, .item {
 
 @media (max-width: 1100px) {
     .filters {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        padding-right: 40px;
     }
 
     .left-filter, .center-filter, .right-filter {
@@ -293,5 +260,46 @@ li.card-text span, .item {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+}
+
+/* Quando instalar o Bootstrap local, alterar o --bs-breakpoint-md: 768px; para -> --bs-breakpoint-md: 799px; */
+
+@media (max-width: 799px) {
+    /* Card .filters com bug de reponsividade em telas entre 799px e 768px */
+    .filters {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 40px;
+    }
+    img.navbar-brand {
+        width: 80px;
+    }
+    .navbar a {
+        font-size: 15px;
+    }
+    
+    img.logo-ifood {
+        width: 50px;
+    }
+    .filters {
+        padding-right: 0;
+    }
+    .orders-container {
+        width: 100vw;
+        margin: auto;
+    }
+    .orders-posts {
+        height: 280px;
+    }
+    .details-container {
+        width: 93vw;
+        height: 490px;
+        margin: 0 auto 20px;
+    }
+    .details-buttons {
+        flex-direction: row;
+        margin-top: 10px;
     }
 }

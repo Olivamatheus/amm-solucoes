@@ -34,10 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Script para alternar o estado do botão "Abrir Loja"
+    // Botão Abrir/Fechar Loja
     const abrirLojaBtn = document.getElementById('abrirLojaBtn');
     abrirLojaBtn.addEventListener('click', () => {
-        console.log('Botão clicado!'); // Verifique se isso aparece no console
         if (abrirLojaBtn.classList.contains('off')) {
             abrirLojaBtn.classList.remove('off');
             abrirLojaBtn.classList.add('on');
