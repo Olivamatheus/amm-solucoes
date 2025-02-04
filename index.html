@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <!-- Container filtros -->
                 <div class="card filters">
-                    <h5 class="card-title text-center p-2">Filtrar</h5>
+                    <h5 class="card-title text-center p-2">Filtrar Pedido:</h5>
                     <div class="card-body p-0">
                         <div class="row">
                             <!-- Filtro por Número -->
@@ -36,7 +36,7 @@
                                 <div class="mb-0 d-flex justify-content-between align-items-center">
                                     <label for="filtroNumero" class="form-label mb-0">Número</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control border-primary" id="filtroNumero">
+                                        <input type="number" class="form-control" id="filtroNumero">
                                         <span class="input-group-text"><i class="bi bi-search"></i></span>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                             <div class="col-md-4 right-filter">
                                 <div class="mb-0 d-flex justify-content-between align-items-center">
                                     <label class="form-label mb-0">Loja</label>
-                                    <div class="dropdown">
+                                    <div class="dropdown mb-0">
                                         <button class="btn dropdown-toggle" type="button" id="dropdownLoja"
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                             Selecione as Lojas
@@ -99,12 +99,14 @@
                     <!-- Cards dos Pedidos -->
                     <div class="col-md-9 orders-container">
                         <div class="card orders-posts">
-                            <h5 class="card-title text-center p-3 mb-0">Pedidos</h5>
+                            <div class="d-flex justify-content-between align-items-center border-bottom p-2 mb-3">
+                                <h5 class="card-title text-center my-2 pb-2">Pedidos</h5>
+                                <button id="criarPedidoBtn" class="btn">Criar Pedido</button>
+                            </div>
                             <div
                                 class="card-body d-flex flex-wrap p-0 justify-content-evenly align-items-center orders-content">
-                                <!-- Exemplo de card de pedido -->
-                                <div class="col-md-2 m-1 card mb-3 order" data-bs-toggle="collapse"
-                                    data-bs-target="#detalhesPedido">
+                                <!-- Card de Pedido 1 -->
+                                <div class="col-md-3 m-1 card mb-3 order" data-pedido="123">
                                     <div class="card-body">
                                         <div class="orders-data">
                                             <p class="card-data"><strong><span class="order-number">#123</span></strong>
@@ -125,63 +127,72 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Card de Pedido 2 -->
+                                <div class="col-md-3 m-1 card mb-3 order" data-pedido="124">
+                                    <div class="card-body">
+                                        <div class="orders-data">
+                                            <p class="card-data"><strong><span class="order-number">#124</span></strong>
+                                            </p>
+                                            <p class="card-data"><strong><span
+                                                        class="order-date">31/01/2025</span></strong></p>
+                                            <p class="card-data"><strong><span class="order-hour">15:00</span></strong>
+                                            </p>
+                                        </div>
+                                        <div class="card-info">
+                                            <div class="users-info">
+                                                <p class="card-text person-name">Maria Oliveira</p>
+                                                <p class="card-text store-name">Loja: Loja 2</p>
+                                                <p class="card-text"><span
+                                                        class="order-status confirmado">CONFIRMADO</span></p>
+                                            </div>
+                                            <p class="card-text"><span class="order-price">75,00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card de Pedido 3 -->
+                                <div class="col-md-3 m-1 card mb-3 order" data-pedido="125">
+                                    <div class="card-body">
+                                        <div class="orders-data">
+                                            <p class="card-data"><strong><span class="order-number">#125</span></strong>
+                                            </p>
+                                            <p class="card-data"><strong><span
+                                                        class="order-date">01/02/2025</span></strong></p>
+                                            <p class="card-data"><strong><span class="order-hour">16:00</span></strong>
+                                            </p>
+                                        </div>
+                                        <div class="card-info">
+                                            <div class="users-info">
+                                                <p class="card-text person-name">Carlos Souza</p>
+                                                <p class="card-text store-name">Loja: Loja 3</p>
+                                                <p class="card-text"><span
+                                                        class="order-status cancelado">CANCELADO</span></p>
+                                            </div>
+                                            <p class="card-text"><span class="order-price">100,00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Detalhes do Pedido -->
-                    <div class="col-md-3">
-                        <div class="card details-container">
-                            <div id="detalhesPedido" class="collapse">
-                                <div class="card-body d-flex flex-column justify-content-evenly align-items-center">
-                                    <div class="info-order m-2">
-                                        <h5 class="card-title">Detalhes do Pedido <span class="order-number">#123</span>
-                                        </h5>
-                                    </div>
-                                    <div class="details-info">
-                                        <p class="card-text"><strong>Data do Pedido:</strong> <span
-                                                class="order-date">31/01/2025</span></p>
-                                        <p class="card-text"><strong>Data da Entrega</strong> -</p>
-                                        <p class="card-text"><strong>Cliente:</strong> João Silva</p>
-                                        <p class="card-text"><strong>Loja:</strong> Loja 1</p>
-                                    </div>
-                                    <hr class="details-line">
-                                    <div class="details-order">
-                                        <div class="order-items m-2">
-                                            <ul class="card-text"><strong>Itens:</strong>
-                                                <li class="card-text item"> <span class="qt-item">x</span> Camisetas
-                                                </li>
-                                                <li class="card-text item"> <span class="qt-item">x</span> Calça</li>
-                                            </ul>
-                                        </div>
-                                        <hr class="details-line">
-                                        <div class="price-order m-2">
-                                            <ul class="card-text"><strong>Valor</strong>
-                                                <li class="card-text">Valor total dos Itens: </li>
-                                                <li class="card-text">Taxa de Entrega: </li>
-                                                <li class="card-text">Taxa Adicional: <span class="">10,00</span></li>
-                                                <li class="card-text">Desconto LOJA: <span class="">10,00</span></li>
-                                                <li class="card-text">Valor TOTAL: <span class="">10,00</span></li>
-                                            </ul>
-                                        </div>
-                                        <hr class="details-line">
-                                        <div class="type-payment m-2">
-                                            <ul class="card-text"><strong>Forma de Pagamento</strong>
-                                                <li class="card-text mt-1">Cartão Crédito/Débito: </li>
-                                                <li class="card-text">Pagamento Online: </li>
-                                                <li class="card-text">Desconto LOJA: <span class="">10,00</span></li>
-                                            </ul>
-                                        </div>
-                                        <hr class="details-line">
-                                    </div>
-                                    <!-- Botões de Ação -->
-                                    <div class="d-flex justify-content-evenly align-items-center details-buttons">
-                                        <button class="btn btn-outline-secondary ms-auto mt-3">Imprimir</button>
-                                        <button class="btn btn-outline-primary ms-auto mt-3">Finalizar</button>
-                                        <button class="btn btn-outline-danger ms-auto mt-3">Cancelar</button>
-                                    </div>
+                    <div class="col-md-3 details-container">
+                        <div class="card d-flex flex-column justify-content-evenly align-items-center">
+                            <div id="detalhesPedido" class="d-none">
+                                <div class="card-body">
+
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal para Detalhes do Pedido (Mobile) -->
+                    <div id="modalDetalhesPedido" class="modal-mobile">
+                        <div class="modal-content">
+                            <button id="fecharModalBtn" class="btn-fechar-modal">&times;</button>
+                            <div id="conteudoModal"></div>
                         </div>
                     </div>
                 </div>

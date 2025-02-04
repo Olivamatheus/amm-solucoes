@@ -52,12 +52,16 @@ img.logo-ifood {
 h5.card-title {
     font-size: 1rem;
     font-weight: 600;
+    border-bottom: 1px solid var(--cor1);
 }
 select.form-select, .dropdown button, .left-filter input {
     width: 160px;
     height: 30px;
     font-size: 0.8rem;
-    margin: 0 0 0 15px;
+    border: 1px solid var(--cor1);
+}
+.form-label {
+    margin-right: 10px;
 }
 .dropdown-menu {
     width: 100%;
@@ -77,8 +81,8 @@ select.form-select, .dropdown button, .left-filter input {
     font-size: 0.8rem;
 }
 .btn-toggle {
-    background-color: var(--cor1);
-    color: var(--cor3);
+    background-color: green;
+    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -87,12 +91,14 @@ select.form-select, .dropdown button, .left-filter input {
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
-.btn-toggle.on {
-    background-color: green;
+
+.btn-danger {
+    background-color: red;
     color: white;
 }
-.btn-toggle.off {
-    background-color: red;
+
+.btn-primary {
+    background-color: green; 
     color: white;
 }
 
@@ -142,7 +148,7 @@ select.form-select, .dropdown button, .left-filter input {
     align-items: center;
 }
 p.card-text, ul.card-text, p.card-data {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin-bottom: 5px;
 }
 .card-info {
@@ -151,7 +157,7 @@ p.card-text, ul.card-text, p.card-data {
     align-items: center;
 }
 span.order-price {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 .users-info {
@@ -166,9 +172,20 @@ span.order-price {
     height: 65vh;
     overflow-y: hidden;
 }
+.details-container .card {
+    height: 100%;
+}
+#detalhesPedido {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .details-order {
     width: 100%;
-    max-height: 230px;
+    height: 30vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -207,10 +224,47 @@ li.card-text {
     align-items: center;
 }
 
-li.card-text span, .item {
-    margin-right: 20px;
+li.card-text span {
+    margin-right: 15px;
 }
 
+.modal-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1000; 
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 30% auto; 
+    padding: 20px;
+    width: 100%; 
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.btn-fechar-modal:hover {
+    color: #ff0000;
+}
 
 @media (max-width: 1100px) {
     .filters {
@@ -244,7 +298,7 @@ li.card-text span, .item {
     }
 
     .order {
-        width: 130px;
+        width: 220px;
     }
 
     .order .card-body {
@@ -252,7 +306,7 @@ li.card-text span, .item {
     }
 
     .details-container {
-        width: 27vw;
+        width: 30vw;
     }
 
     .details-buttons {
@@ -267,10 +321,14 @@ li.card-text span, .item {
 
 @media (max-width: 799px) {
     /* Card .filters com bug de reponsividade em telas entre 799px e 768px */
+    .navbar .container-fluid {
+        height: 10vh;
+    }
     .filters {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
         padding-right: 40px;
     }
     img.navbar-brand {
@@ -291,12 +349,13 @@ li.card-text span, .item {
         margin: auto;
     }
     .orders-posts {
-        height: 280px;
+        height: 55vh;
+    }
+    .order {
+        width: 240px;
     }
     .details-container {
-        width: 93vw;
-        height: 490px;
-        margin: 0 auto 20px;
+        display: none;
     }
     .details-buttons {
         flex-direction: row;
